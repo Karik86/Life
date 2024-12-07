@@ -17,7 +17,7 @@ void disp (char** arr, int rw, int cl,int gen, int count)
     cout << "Generation: " << gen << ".  " << "Alive cells: " << count << endl;
     cout << endl << endl;
     Sleep(1000);
-    
+    //system("CLS");
 }
 
 int main()
@@ -53,10 +53,10 @@ int main()
     }
 
     fin.close();
-    
    
+    disp(arr, rw, cl, 1, count);
 
-    for (int gen = 1; ; gen++)
+    for (int gen = 2; ; gen++)
     {
         for (int i = 0; i < rw; i++)
         {
@@ -72,7 +72,7 @@ int main()
                 if (i + 1 < rw && j - 1 >= 0 && (arr[i + 1][j - 1] == '*'|| arr[i + 1][j - 1] == '#')) k++;
                 if (i - 0 >= 0 && j - 1 >= 0 && (arr[i - 0][j - 1] == '*'|| arr[i - 0][j - 1] == '#')) k++;
 
-               // cout << k<<endl;
+               // cout << k << endl;
 
                 if (arr[i][j] == '*') 
                 {
@@ -92,6 +92,7 @@ int main()
         
             }
         }
+
         bool flag = false;
         for (int i = 0; i < rw; i++)
         {
@@ -111,17 +112,16 @@ int main()
                 }
             }
         }
+        
+            disp(arr, rw, cl, gen, count);
+
          if (count==0||flag==false)
          {
              cout << "GAME OVER" << endl;
              break;
          }
-        disp(arr, rw, cl, gen, count);
+        
     }
-
-
-    
-   
 
     for (int i = 0; i < rw; i++) {
 
